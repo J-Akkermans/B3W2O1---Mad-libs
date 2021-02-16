@@ -72,3 +72,13 @@ input[type="submit"]{
     width: auto;
     padding: 5px;
 }
+
+.error{
+    display: block;
+    margin-left: 10px;
+    color: red;
+    font-weight: bold;
+}
+p{
+    margin: 10px;
+}

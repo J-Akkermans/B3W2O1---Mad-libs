@@ -2,7 +2,7 @@
 $nav = <<<EOD
         <nav>
             <ul>
-                <li><a href="#">Er heerst paniek...</a></li>
+                <li><a href="index.php">Er heerst paniek...</a></li>
                 <li><a href="#">Onkunde</a></li>
             </ul>
         </nav>
@@ -13,4 +13,3 @@ $end = <<<EOD
         </footer>
 EOD;
 ?>
-
