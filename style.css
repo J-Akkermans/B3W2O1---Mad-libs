@@ -73,12 +73,14 @@ input[type="submit"]{
     padding: 5px;
 }
 
-.error{
+.error, .ac{
     display: block;
-    margin-left: 10px;
+    text-align: right;
+    margin-right: 10px;
     color: red;
     font-weight: bold;
 }
 p{
     margin: 10px;
 }
+
