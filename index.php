@@ -29,7 +29,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $counter = 0;
     foreach ($test as $username) {
         if (empty($username)) {
-            print_r($username);
             $items[$counter] = validate($username);
             $check[$counter] = true;
 
@@ -44,27 +43,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         een gebrek aan $test[4], maar met een te veel aan $test[5]. Te veel $test[5]
         leidt tot $test[6] en dat is niet goed als je wilt $test[0]. Helaas voor $test[1].</p>";
     } else {
-        if ($check[0]) {
-            $err[0] = $errorText;
+        for ($i = 0; $i < count($check); $i++) {
+            if ($check[$i]) {
+                $err[$i] = $errorText;
+            }
         }
-        if ($check[1]) {
-            $err[1] = $errorText;
-        }
-        if ($check[2]) {
-            $err[2] = $errorText;
-        }
-        if ($check[3]) {
-            $err[3] = $errorText;
-        }
-        if ($check[4]) {
-            $err[4] = $errorText;
-        }
-        if ($check[5]) {
-            $err[5] = $errorText;
-        }
-        if ($check[6]) {
-            $err[6] = $errorText;
-        }
+
     }
 }
 function validate($data)
@@ -82,7 +66,7 @@ function validate($data)
     <h1>Mad Libs</h1>
     <section class="wrapper">
         <?= $nav ?>
-        <h2>Onkude</h2>
+        <h2>Onkunde</h2>
         <section>
             <?php
             echo $story;
@@ -90,31 +74,31 @@ function validate($data)
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                     <span class="error"><?= $err[0] ?></span>
                     <label for=" 1">Wat zou je graag willen kunnen?</label>
-                    <input type="text" id="1" name="checkArr[0]">
+                    <input type="text" id="1" name="checkArr[0]" value="<?= $test[0]?>">
                     <!-- 1 -->
                     <span class="error"><?= $err[1] ?></span>
                     <label for="2">Met welke persoon kun je goed opschieten</label>
-                    <input type="text" id="2" name="checkArr[1]">
+                    <input type="text" id="2" name="checkArr[1]" value="<?= $test[1]?>">
                     <!-- 2 -->
                     <span class="error"><?= $err[2] ?></span>
                     <label for="3">Wat is je favoriete getal?</label>
-                    <input type="text" id="3" name="checkArr[2]">
+                    <input type="text" id="3" name="checkArr[2]" value="<?= $test[2]?>">
                     <!-- 3 -->
                     <span class="error"><?= $err[3] ?></span>
                     <label for="4">Wat heb je altijd bij je als je op vakantie gaat?</label>
-                    <input type="text" id="4" name="checkArr[3]">
+                    <input type="text" id="4" name="checkArr[3]" value="<?= $test[3]?>">
                     <!-- 4 -->
                     <span class="error"><?= $err[4] ?></span>
                     <label for="5">Wat is je beste persoonlijke eigenschap?</label>
-                    <input type="text" id="5" name="checkArr[4]">
+                    <input type="text" id="5" name="checkArr[4]" value="<?= $test[4]?>">
                     <!-- 5 -->
                     <span class="error"><?= $err[5] ?></span>
                     <label for="6">Wat is je slechtste persoonlijke eigenschap</label>
-                    <input type="text" id="6" name="checkArr[5]">
+                    <input type="text" id="6" name="checkArr[5]" value="<?= $test[5]?>">
                     <!-- 6 -->
                     <span class="error"><?= $err[6] ?></span>
                     <label for="7">Wat is het ergste dat je kan overkomen?</label>
-                    <input type="text" id="7" name="checkArr[6]">
+                    <input type="text" id="7" name="checkArr[6]" value="<?= $test[5]?>">
                     <!-- button -->
                     <div class="submit">
                         <input type="submit" value="Versturen">

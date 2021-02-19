@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $counter = 0;
     foreach ($test as $username) {
         if (empty($username)) {
-            print_r($username);
+
             $items[$counter] = validate($username);
             $check[$counter] = true;
 
@@ -52,29 +52,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     \"$test[3], Sire.\"
                     </p>";
     } else {
-        if ($check[0]) {
-            $err[0] = $errorText;
-        }
-        if ($check[1]) {
-            $err[1] = $errorText;
-        }
-        if ($check[2]) {
-            $err[2] = $errorText;
-        }
-        if ($check[3]) {
-            $err[3] = $errorText;
-        }
-        if ($check[4]) {
-            $err[4] = $errorText;
-        }
-        if ($check[5]) {
-            $err[5] = $errorText;
-        }
-        if ($check[6]) {
-            $err[6] = $errorText;
-        }
-        if ($check[7]) {
-            $err[7] = $errorText;
+        for ($i = 0; $i < count($check); $i++) {
+            if ($check[$i]) {
+                $err[$i] = $errorText;
+            }
         }
     }
 }
@@ -93,7 +74,7 @@ function validate($data)
     <h1>Mad Libs</h1>
     <section class="wrapper">
         <?= $nav ?>
-        <h2>Onkude</h2>
+        <h2>Paniek</h2>
         <section>
             <?php
             echo $story;
